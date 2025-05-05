@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prakash Raj | Developer’s Playground</title>
+  <link rel="stylesheet" href="index.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+  <script defer src="index.js"></script>
+</head>
+<body>
+  <!-- Animated Background -->
+  <div class="animated-background">
+    <div class="gradient-overlay"></div>
+    <canvas id="particles-canvas"></canvas>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="logo">
+      <span>PR</span>
+    </div>
+    <div class="menu-toggle" id="menu-toggle">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="greeting">Hello!</h1>
+        <h2 class="name">I'm <span class="highlight">Prakash Raj</span></h2>
+        <div class="typing-wrapper">
+          <p>I'm a <span class="typing"></span></p>
+        </div>
+        <div class="cta-buttons">
+          <a href="#contact" class="btn primary-btn">Hire Me</a>
+          <a href="#projects" class="btn secondary-btn">My Projects</a>
+        </div>
+        <div class="social-links">
+          <a href="www.linkedin.com/in/1046prt" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://github.com/1046prt" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+          <a href="x.com/1046prt" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.kaggle.com/prt1046" target="_blank" class="social-icon"><i class="fab fa-kaggle"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span class="scroll-text">Scroll Down</span>
+      <div class="scroll-arrow"><i class="fas fa-chevron-down"></i></div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="section-header">
+        <h2>About <span class="highlight">Me</span></h2>
+        <div class="underline"></div>
+      </div>
+
+      <div class="about-content">
+        <div class="about-image">
+          <div class="image-wrapper">
+            <div class="image-outline"></div>
+            <div class="image-placeholder">
+              <img src="kakashu.webp" alt="Prakash Raj" class="profile-image">
+            </div>
+          </div>
+        </div>
+
+        <div class="about-text">
+          <p class="intro">Hi there! I'm Prakash Raj, a passionate web developer and data scientist based in Jaipur.</p>
+          <p>Currently pursuing my Bachelor's in Data Science and Artificial Intelligence at ICFAI University Jaipur. I love creating stunning websites and solving complex data problems.</p>
+          <p>With hands-on experience in HTML, CSS, JavaScript, Python, and various data science tools, I strive to create solutions that are both visually appealing and technically sound.</p>
+          <div class="about-details">
+            <div class="detail">
+              <a href="https://www.iujaipur.edu.in/" target="_blank">
+                <i class="fas fa-graduation-cap"></i>
+              </a>
+              <span><a href="https://www.iujaipur.edu.in/" target="_blank">B.Tech in Data Science & AI</a></span>
+            </div>
+            <div class="detail">
+              <a href="https://www.iujaipur.edu.in/" target="_blank"><i class="fas fa-map-marker-alt"></i></a>
+              <span><a href="https://www.google.com/maps?q=Jaipur,+India" target="_blank">Jaipur, India</a></span>
+            </div>
+            <div class="detail">
+              <a href="https://www.iujaipur.edu.in/" target="_blank"><i class="fas fa-envelope"></i></a>
+              <span><a href="https://mailto:rajprakash1046@gmail.com">rajprakash1046@gmail.com</a></span>
+            </div>
+            <div class="detail">
+              <a href="https://www.iujaipur.edu.in/" target="_blank"><i class="fas fa-phone"></i></a>
+              <span><a href="tel:+919508015377" target="_blank">+91 9508015377</a></span>
+            </div>
+          </div>
+          <a href="Prakash_raj_resume.pdf" target="_blank" class="btn primary-btn">Download Resume</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="skills">
+    <div class="container">
+      <div class="section-header">
+        <h2>My <span class="highlight">Skills</span></h2>
+        <div class="underline"></div>
+      </div>
+      <div class="skills-content">
+        <div class="skills-category">
+          <h3>Web Development</h3>
+          <div class="skills-grid">
+            <div class="skill-item" data-skill="HTML5">
+              <div class="skill-icon"><i class="fab fa-html5"></i></div>
+              <div class="skill-info">
+                <h4>HTML5</h4>
+                <div class="skill-bar">
+                  <div class="skill-level" style="width: 95%"></div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-item" data-skill="CSS3">
+              <div class="skill-icon"><i class="fab fa-css3-alt"></i></div>
+              <div class="skill-info">
+                <h4>CSS3</h4>
+                <div class="skill-bar">
+                  <div class="skill-level" style="width: 90%"></div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-item" data-skill="JavaScript">
+              <div class="skill-icon"><i class="fab fa-js"></i></div>
+              <div class="skill-info">
+                <h4>JavaScript</h4>
+                <div class="skill-bar">
+                  <div class="skill-level" style="width: 85%"></div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-item" data-skill="React">
+              <div class="skill-icon"><i class="fab fa-react"></i></div>
+              <div class="skill-info">
+                <h4>React</h4>
+                <div class="skill-bar">
+                  <div class="skill-level" style="width: 80%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="skills-category">
+          <h3>Data Science</h3>
+          <div class="skills-grid">
+            <div class="skill-item" data-skill="Python">
+              <div class="skill-icon"><i class="fab fa-python"></i></div>
+              <div class="skill-info">
+                <h4>Python</h4>
+                <div class="skill-bar">
+                  <div class="skill-level" style="width: 90%"></div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-item" data-skill="Data Analysis">
+              <div class="skill-icon"><i class="fas fa-chart-bar"></i></div>
+              <div class="skill-info">
+                <h4>Data Analysis</h4>
+                <div class="skill-bar">
+                  <div class="skill-level" style="width: 85%"></div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-item" data-skill="Machine Learning">
+              <div class="skill-icon"><i class="fas fa-brain"></i></div>
+              <div class="skill-info">
+                <h4>Machine Learning</h4>
+                <div class="skill-bar">
+                  <div class="skill-level" style="width: 80%"></div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-item" data-skill="Data Visualization">
+              <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
+              <div class="skill-info">
+                <h4>Data Visualization</h4>
+                <div class="skill-bar">
+                  <div class="skill-level" style="width: 85%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects">
+    <div class="container">
+      <div class="section-header">
+        <h2>My <span class="highlight">Projects</span></h2>
+        <div class="underline"></div>
+      </div>
+      <div class="project-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="web">Web Development</button>
+        <button class="filter-btn" data-filter="data">Data Science</button>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card" data-category="web">
+          <div class="project-image">
+            <img src="#" alt="Portfolio Website">
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>Portfolio Website</h3>
+            <p>Designed and developed a personal portfolio website showcasing my skills and projects.</p>
+            <div class="project-tags">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-card" data-category="data">
+          <div class="project-image">
+            <img src="/api/placeholder/400/320" alt="Data Visualization Dashboard">
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="#" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                <a href="#" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>Data Visualization Dashboard</h3>
+            <p>Created a dashboard using Python and Dash for visualizing complex data sets.</p>
+            <div class="project-tags">
+              <span>Python</span>
+              <span>Dash</span>
+              <span>Plotly</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-card" data-category="web">
+          <div class="project-image">
+            <img src="/api/placeholder/400/320" alt="BrandHub">
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="https://brand-hub-xi.vercel.app/" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                <a href="https://github.com/1046prt/BrandHub" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>Brand Hub</h3>
+            <p><strong>Synopsis</strong><br>
+            Brand Hub is a dynamic web application built to showcase a diverse range of brands across multiple categories, including technology, automotive, streaming services, and offers an intuitive user interface, interactive brand displays, and robust search functionality, allowing users to seamlessly explore and discover brands based on their interests.</p>
+        <div class="project-tags">
+              <span>Html</span>
+              <span>CSS</span>
+              <span>Node.js</span>
+              <span>Firebase</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-card" data-category="data">
+          <div class="project-image">
+            <img src="/api/placeholder/400/320" alt="ML Recommendation System">
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="#" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                <a href="#" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>ML Recommendation System</h3>
+            <p>Built a machine learning algorithm for personalized content recommendations.</p>
+            <div class="project-tags">
+              <span>Python</span>
+              <span>TensorFlow</span>
+              <span>Scikit-learn</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-header">
+        <h2>Contact <span class="highlight">Me</span></h2>
+        <div class="underline"></div>
+      </div>
+      <div class="contact-content">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="contact-text">
+              <h3>Email</h3><p><a href="https://mailto:rajprakash1046@gmail.com">rajprakash1046@gmail.com</a></p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div class="contact-text">
+              <h3>Phone</h3>
+              <p><a href="tel:+919508015377" target="_blank">+91 9508015377</a></p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="contact-text">
+              <h3>Location</h3>
+              <p><a href="https://www.google.com/maps?q=Jaipur,+India" target="_blank">Jaipur, India</a></p>
+            </div>
+          </div>
+          <div class="social-links-large">
+            <a href="https://mailto:rajprakash1046@gmail.com" target="_blank" class="social-icon-large"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+            <a href="https://wa.me/919508015377?text=Hi%20Prakash" target="_blank"  class="social-icon-large"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://instagram.com/1046prt/" target="_blank"  class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="https://x.com/1046prt" target="_blank"  class="social-icon-large"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <p>© 2025 Prakash Raj | Programmer</p>
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="back-to-top" id="backToTop">
+      <i class="fas fa-arrow-up"></i>
+    </div>
+  </footer>
+</body>
+</html>
