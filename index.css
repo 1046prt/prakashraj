@@ -683,6 +683,14 @@ a {
   margin-bottom: 4rem;
 }
 
+/* Mobile view - stacks filters vertically */
+@media (max-width: 768px) {
+  .project-filters {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 .filter-btn {
   background: none;
   border: 2px solid transparent;
