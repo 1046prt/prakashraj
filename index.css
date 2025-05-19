@@ -16,8 +16,8 @@
   --element-margin: 2rem;
   
   /* Animations */
-  --transition-fast: 0.3s ease;
-  --transition-medium: 0.5s ease;
+  --transition-fast: 0.8s ease;
+  --transition-medium: 0.9s ease;
   --transition-slow: 0.8s ease;
 }
 
@@ -56,7 +56,7 @@ section {
 a {
   text-decoration: none;
   color: var(--text-light);
-  transition: color var(--transition-fast);
+  transition: color var(--transition-slow);
 }
 
 .btn {
@@ -76,11 +76,14 @@ a {
 }
 
 .primary-btn {
-  background-color: var(--primary-color);
-  color: var(--text-dark);
+  background-color:var(--primary-color);
+  color: #000000;
+  font-weight: bold !important;
+
 }
 
 .primary-btn:hover {
+  color: var(--primary-color);
   background-color: var(--primary-light);
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
@@ -90,6 +93,8 @@ a {
   background-color: transparent;
   color: var(--text-light);
   border: 2px solid var(--primary-color);
+  font-weight: bold !important;
+
 }
 
 .secondary-btn:hover {
@@ -389,6 +394,7 @@ a {
   border-radius: 50%;
   z-index: 1;
   box-shadow: 0 0 15px 5px rgba(207, 13, 13, 0.2);
+  pointer-events: none; /* Prevents interference with clicks */
 }
 
 .image-outline::before {
@@ -401,26 +407,37 @@ a {
   border: 2px solid var(--primary-color);
   border-radius: 50%;
   z-index: 2;
+  pointer-events: none; /* Prevents interference with clicks */
 }
 
+/* Fixed image placeholder */
 .image-placeholder {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--bg-lighter);
+  background-color: transparent; /* Changed from var(--bg-lighter) to transparent */
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 3;
-  box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.3);
+  overflow: hidden; /* Ensures content stays within bounds */
 }
 
+/* For icon placeholder (when no image is present) */
 .image-placeholder i {
   font-size: 8rem;
   color: var(--primary-color);
+}
+
+/* For the actual image */
+.image-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .about-text p {
@@ -454,6 +471,7 @@ a {
   display: flex;
   align-items: center;
   transition: all 0.3s ease;
+  
 }
 
 .detail a i {
@@ -473,23 +491,6 @@ a {
 .detail a:hover i {
   color: rgb(230, 114, 20); 
 }
-
-
-.primary-btn {
-  background-color: rgb(230, 114, 20);
-  color: black;
-  padding: 10px 20px;
-  border: 2px solid black;
-  font-size: 16px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.primary-btn:hover {
-  background-color: black;
-  color: rgb(230, 114, 20);
-}
-
 
 .detail {
   display: flex;
@@ -694,18 +695,24 @@ a {
   transition: all var(--transition-fast);
   position: relative;
   overflow: hidden;
+  color: #000000;
+  background-color: #ff6f00;
+  font-weight: bold !important;
+
 }
 
 .filter-btn:hover, .filter-btn.active {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.3);
+  background-color: black;
+  color: #ff6f00;
+  border-color: #000000;
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .filter-btn.active {
-  background-color: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.5);
+  background-color: #000000;
+  color: #ff6f00;
+  border-color:#ff6f00;
 }
 
 .projects-container {
@@ -737,6 +744,63 @@ a {
   background-position: center;
   border-radius: 10px 10px 0 0;
   position: relative;
+}
+
+.project-image {
+  width: 100%;
+  height: 4em;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 10px 10px 0 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Add this new class for handling project images */
+.project-image img {
+  width: 100%;
+  height: 50%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.05);
+}
+
+/* Make projects container more responsive */
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 100%;
+}
+
+/* Improve responsive behavior for project cards */
+@media screen and (max-width: 768px) {
+  .projects-container {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+  
+  /*.project-image {
+    height: 180px;
+  }*/
+}
+
+@media screen and (max-width: 480px) {
+  .projects-container {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+  
+  /*.project-image {
+    height: 220px;
+  }*/
 }
 
 .project-overlay {
@@ -778,7 +842,7 @@ a {
 }
 
 .project-link:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: #ff6f00;
   transform: scale(1.05);
 }
 
@@ -812,13 +876,25 @@ a {
   border-radius: 50px;
   font-size: 0.9rem;
   transition: all 0.3s ease;
+  background-color:#ff6f00;
+  color: black;
+  font-weight: bold !important;
+  border-color:#ff6f00;
+  font-size: 10px;
 }
 
 .project-tags span:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: black;
+  color: #ff6f00;
+  border-color:#ff6f00;
+  font-weight: bold !important;
   transform: translateY(-3px);
 }
 
+.ptitle{
+  color: var(--primary-color);
+  font-size: 2rem;
+}
 /* ===== CONTACT SECTION ===== */
 .contact {
   background-color: rgba(0, 0, 0, 0.3);
@@ -990,14 +1066,10 @@ a {
 .back-to-top:hover {
   transform: translateY(-5px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  background-color: black;
+  background-color: transparent;
   color: #ff6f00;
 }
 
-
-
-
-/* Media queries for general responsiveness */
 /* Tablet and smaller screens */
 @media screen and (max-width: 992px) {
   .btn {
