@@ -345,7 +345,7 @@ section, header,.new,footer, main, nav {
 }
 
 /* Mobile responsive styles */
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 550px) {
   .navbar {
     padding: 1.5 rem;
   }
