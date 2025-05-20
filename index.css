@@ -1014,7 +1014,21 @@ section, header, .new, footer, main, nav {
     align-items: center; /* Center details */
     gap: 1rem; /* Add space between details */
   }
+  
+    .filter-container {
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items */
+    gap: 1rem; /* Add space between buttons */
+  }
+  .filter-btn {
+    width: 100%; /* Make buttons full width */
+    max-width: 300px; /* Set a max width for buttons */
+    padding: 1rem; /* Adjust padding for better touch targets */
+  }
 }
+
+
 
 /* For even smaller screens */
 @media screen and (max-width: 480px) {
@@ -1027,6 +1041,19 @@ section, header, .new, footer, main, nav {
   .scroll-indicator {
     bottom: 1rem;
   }
+    .filter-container {
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items */
+    gap: 1rem; /* Add space between buttons */
+  }
+  .filter-btn {
+    width: 100%; /* Make buttons full width */
+    max-width: 300px; /* Set a max width for buttons */
+    padding: 1rem; /* Adjust padding for better touch targets */
+  }
+
+
   
   /* Make the animation less dramatic for small screens */
   @keyframes bounce {
@@ -1410,6 +1437,7 @@ section, header, .new, footer, main, nav {
     align-items: center; /* Center details */
     gap: 1rem; /* Add space between details */
   }
+  
 }
 
 
