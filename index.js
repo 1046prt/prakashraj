@@ -760,3 +760,114 @@ document.querySelector('.scroll-indicator').addEventListener('click', function()
         behavior: 'smooth'
     });
 });
+
+// Improved JavaScript for mobile menu with debugging
+document.addEventListener('DOMContentLoaded', function() {
+  const menuToggle = document.getElementById('menu-toggle');
+  const navLinks = document.getElementById('nav-links');
+  
+  if (!menuToggle || !navLinks) {
+    console.error('Menu toggle or nav links element not found. Check your HTML IDs.');
+    return;
+  }
+  
+  // Toggle menu when hamburger is clicked
+  menuToggle.addEventListener('click', function(e) {
+    e.stopPropagation(); 
+    menuToggle.classList.toggle('active');
+    navLinks.classList.toggle('active');
+    
+    // Log the state for debugging
+    console.log('Menu toggled. Active state:', navLinks.classList.contains('active'));
+    
+    
+    navLinks.style.display = 'none';
+    setTimeout(() => {
+      navLinks.style.display = '';
+    }, 5);
+  });
+  
+  // Close menu when a link is clicked
+  const navItems = document.querySelectorAll('.nav-links li a');
+  navItems.forEach(item => {
+    item.addEventListener('click', function() {
+      menuToggle.classList.remove('active');
+      navLinks.classList.remove('active');
+      console.log('Menu closed via nav link click');
+    });
+  });
+  
+  // Close menu when clicking outside
+  document.addEventListener('click', function(event) {
+    if (navLinks.classList.contains('active')) {
+      const isClickInsideNav = navLinks.contains(event.target);
+      const isClickOnToggle = menuToggle.contains(event.target);
+      
+      if (!isClickInsideNav && !isClickOnToggle) {
+        menuToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+        console.log('Menu closed via outside click');
+      }
+    }
+  });
+  
+  // Handle window resize
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 430 && navLinks.classList.contains('active')) {
+      menuToggle.classList.remove('active');
+      navLinks.classList.remove('active');
+      console.log('Menu closed via window resize');
+    }
+  });
+  
+  // Initial console message to confirm script is loaded
+  console.log('Mobile menu JavaScript initialized successfully');
+});
+
+//Developer tool 
+document.onkeydown = function(e) {
+  const key = e.key.toUpperCase();
+
+  // Block F12
+  if (key === "F12") {
+    e.preventDefault();
+    return false;
+  }
+
+  // Block Ctrl+Shift+I/J/C
+  if (e.ctrlKey && e.shiftKey && ['I', 'J', 'C'].includes(key)) {
+    e.preventDefault();
+    return false;
+  }
+
+  // Block Ctrl+U (view source)
+  if (e.ctrlKey && key === 'U') {
+    e.preventDefault();
+    return false;
+  }
+
+  // Block Ctrl+S (Save page)
+  if (e.ctrlKey && key === 'S') {
+    e.preventDefault();
+    return false;
+  }
+
+  // Block Ctrl+Shift+C (Inspect element)
+  if (e.ctrlKey && e.shiftKey && key === 'C') {
+    e.preventDefault();
+    return false;
+  }
+
+  // Block right-click context menu (common for inspecting)
+  document.oncontextmenu = function(e) {
+    e.preventDefault();
+    return false;
+  };
+
+  return true;
+};
+
+// Additionally, disable right-click outside oncontextmenu to be safe
+document.addEventListener('contextmenu', function(e) {
+  e.preventDefault();
+});
