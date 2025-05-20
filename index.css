@@ -151,6 +151,64 @@ a {
   transform: translateX(-50%);
 }
 
+/* Apply to html and body to prevent overflow */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+/* Fix all container elements */
+body > * {
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* Make sure all content sections respect viewport width */
+section, header,.new,footer, main, nav {
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+
+/* Adjust padding for very small screens */
+@media screen and (max-width: 330px) {
+  .navbar {
+    padding: 1rem 0.5rem !important;
+  }
+  
+  /* Reduce any horizontal paddings/margins */
+  section, div, header, footer, main {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  
+  /* Ensure absolute/fixed elements don't cause overflow */
+  [style*="position: absolute"], 
+  [style*="position: fixed"],
+  [style*="position:absolute"], 
+  [style*="position:fixed"],
+  .nav-links {
+    max-width: 100vw;
+    box-sizing: border-box;
+  }
+  
+  /* Handle potential fixed-width elements */
+  img, video, iframe, table, .logo {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}
+
 /* ===== ANIMATED BACKGROUND ===== */
 .animated-background {
   position: fixed;
@@ -213,19 +271,40 @@ a {
   box-shadow: 0 0 15px rgba(255, 111, 0, 0.3);
 }
 
+/* Base navbar styling */
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  border: none !important;
+  box-shadow: none !important; 
+  outline: none !important; 
+  padding: 1rem 2rem;
+}
+
+/* Your existing nav-links styling */
 .nav-links {
   display: flex;
   list-style: none;
+  border: none !important; 
+  box-shadow: none !important; 
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links li {
   margin-left: 3rem;
+  border: none !important; 
 }
 
 .nav-links li a {
   font-size: 1.6rem;
   font-weight: 500;
   position: relative;
+  text-decoration: none; 
+  border: none !important; 
 }
 
 .nav-links li a::after {
@@ -237,6 +316,7 @@ a {
   bottom: -5px;
   left: 0;
   transition: width var(--transition-fast);
+  border: none !important;
 }
 
 .nav-links li a:hover::after,
@@ -244,9 +324,14 @@ a {
   width: 100%;
 }
 
+/* Hamburger menu toggle styling */
 .menu-toggle {
   display: none;
   cursor: pointer;
+  border: none !important;
+  background: transparent !important; 
+  padding: 0; 
+  outline: none !important; 
 }
 
 .bar {
@@ -255,8 +340,98 @@ a {
   background-color: var(--text-light);
   margin: 5px 0;
   transition: transform var(--transition-fast), opacity var(--transition-fast);
+  border: none !important;
+  border-radius: 0; 
 }
 
+/* Mobile responsive styles */
+@media screen and (max-width: 650px) {
+  .navbar {
+    padding: 1.5 rem;
+  }
+  
+  /* Show hamburger menu */
+  .menu-toggle {
+    display: block;
+    z-index: 1001;
+  }
+  
+  /* Transform hamburger to X when active */
+  .menu-toggle.active .bar:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+  
+  .menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .menu-toggle.active .bar:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+  
+  /* Mobile navigation menu */
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background-color: var(--bg-dark, #121212); /* Use your theme's dark background color */
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; 
+    transition: right 0.3s ease;
+    z-index: 1000;
+    margin: 0;
+    padding: 0;
+    padding-top: 80px; 
+    box-shadow: none !important;
+    border: none !important; 
+    outline: none !important; 
+  }
+  
+  /* When menu is active */
+  .nav-links.active {
+    right: 0;
+  }
+  
+  /* Adjust list items for vertical layout */
+  .nav-links li {
+    margin: 5px 0; 
+    margin-left: 0; 
+    text-align: center;
+    width: 100%;
+    border: none !important; 
+  }
+  
+  .nav-links li a {
+    display: block;
+    padding: 8px 0; 
+    width: 100%;
+    color: var(--text-light, #fff); 
+    border: none !important; 
+  }
+  
+  /*  logo stays visible and above mobile menu */
+  .logo {
+    z-index: 1001;
+  }
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden; 
+    padding: 1rem;     
+}
+
+.logo {
+    max-width: 100%;   
+    overflow: hidden;  
+    display: flex;      
+    align-items: center;
+    white-space: nowrap; 
+}
 /* ===== HERO SECTION ===== */
 .hero {
   height: 100vh;
